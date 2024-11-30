@@ -15,6 +15,7 @@
 - [ ] Import and export all highlights from various websites.
 - [ ] Local webpage to display all highlights in one place; highlights from various websites.
 - [ ] Works in all touchscreen devices (i.e. iPad, tablet and so on)
+- [ ] Add hideable sticky notes
 
 ... *new ideas are welcome in the [discussion](https://github.com/physicslog/web-highlighter.user.js/discussions/)*
 
