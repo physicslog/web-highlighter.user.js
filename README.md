@@ -24,7 +24,7 @@
 *You can pick any one of the unfinished task from "What it does?" or fix the below bugs or refactor the userscript or any cosmetic changes, and submit the pull request.*
 
 ### Bugs & Improvements
-- [ ]- If the highlighted text contains tags like `<a>`, `<b>`, `<i>`, and so on, it doesn’t show up after refreshing the page. But show up in the "View all highlights in the present website.". 
+- [ ] If the highlighted text contains tags like `<a>`, `<b>`, `<i>`, and so on, it doesn’t show up after refreshing the page. But show up in the "View all highlights in the present website.". 
 - [ ] Only works for Wikipedia.
 - [ ] The newly created highlights don’t show up, and I have to refresh the page to see them.
   - [ ] Highlights also the popup which should not allow.
