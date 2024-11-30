@@ -18,7 +18,7 @@
 *You can pick any one of the unfinished task from "What it does?" or fix the below bugs or refactor the userscript or any cosmetic changes, and submit the pull request.*
 
 ### Bugs
-- Does not show up after refresh if the highlighted text contains <a>, <b>, <i>, and so on tags.
+- Does not show up after refresh if the highlighted text contains `<a>`, `<b>`, `<i>`, and so on tags.
 - Only works for Wikipedia.
 
 ---
