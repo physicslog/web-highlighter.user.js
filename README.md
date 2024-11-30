@@ -5,6 +5,10 @@
 
 **Disclaimer:** It has only been tested in Safari using [Userscript App](https://github.com/quoid/userscripts) and for Wikipedia. Looking for contributors ;)
 
+## Demo
+
+[<video src="https://www.youtube.com/watch?v=hf_Ogyi2cEk"></video>](https://www.youtube.com/watch?v=hf_Ogyi2cEk)
+
 ## What it does?
 
 - [x] Automatically highlights the selected text.
@@ -19,6 +23,7 @@
 - [ ] Add hideable sticky notes
 
 ... *new ideas are welcome in the [discussion](https://github.com/physicslog/web-highlighter.user.js/discussions/)*
+
 
 ## Want to contribute?
 *You can pick any one of the unfinished task from "What it does?" or fix the below bugs or refactor the userscript or any cosmetic changes, and submit the pull request.*
