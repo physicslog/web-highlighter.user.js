@@ -7,7 +7,7 @@
 
 ## Demo
 
-[<video src="https://www.youtube.com/watch?v=hf_Ogyi2cEk"></video>](https://www.youtube.com/watch?v=hf_Ogyi2cEk)
+<video src="https://www.youtube.com/watch?v=hf_Ogyi2cEk"></video>
 
 ## What it does?
 
