@@ -12,7 +12,7 @@
 - [ ] Able to import and export highlights.
 - [ ] Local webpage to display all highlights in one place; highlights from various websites.
 
-... *new ideas are welcome in the discussion*
+... *new ideas are welcome in the [discussion](https://github.com/physicslog/web-highlighter.user.js/discussions/)*
 
 ## Want to contribute?
 *You can pick any one of the unfinished task from "What it does?" or fix the below bugs or refactor the userscript or any cosmetic changes, and submit the pull request.*
