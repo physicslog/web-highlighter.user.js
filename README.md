@@ -1,4 +1,4 @@
-# web-highlights.user.js
+# web-highlighter.user.js
 *An [userscript](https://en.wikipedia.org/wiki/Userscript) that allows the ability to highlight the selected text in the webpages.*
 
 [Download](https://raw.githubusercontent.com/physicslog/web-highlighter.user.js/refs/heads/main/web-highlighter.user.js)
