@@ -3,7 +3,7 @@
 
 [Download](https://raw.githubusercontent.com/physicslog/web-highlighter.user.js/refs/heads/main/web-highlighter.user.js)
 
-**Disclaimer:** It has only been tested in Safari and for Wikipedia. Looking for contributors ;)
+**Disclaimer:** It has only been tested in Safari using [Userscript App](https://github.com/quoid/userscripts) and for Wikipedia. Looking for contributors ;)
 
 ## What it does?
 
