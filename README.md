@@ -11,7 +11,7 @@
 - [x] Pop-up to select different highlighter colors.
 - [x] Saves locally and reloads when refreshing the webpage
 - [ ] Syncs across different devices.
-- [ ] Able to import and export highlights.
+- [ ] Able to import and export all highlights from various websites.
 - [ ] Local webpage to display all highlights in one place; highlights from various websites.
 
 ... *new ideas are welcome in the [discussion](https://github.com/physicslog/web-highlighter.user.js/discussions/)*
