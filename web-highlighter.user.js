@@ -201,12 +201,14 @@
         popup.style.left = `${rect.left}px`;
         popup.style.top = `${rect.bottom + window.scrollY + 10}px`;
 
-        // Remove popup when clicking outside
-        document.addEventListener('click', (event) => {
-            if (!popup.contains(event.target)) {
-                document.body.removeChild(popup);
+        // Remove popup when clicking outside        
+        const outsideClickListener = (event) => { 
+            if (!popup.contains(event.target)) { 
+                document.body.removeChild(popup); 
+                document.removeEventListener('click', outsideClickListener); 
             }
-        }, { once: true });
-    }
-
+        };
+        document.addEventListener('click', outsideClickListener); 
+    } 
+    
 })();
