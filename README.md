@@ -10,6 +10,7 @@
 - [x] Automatically highlights the selected text.
 - [x] Pop-up to select different highlighter colors.
 - [x] Saves locally and reloads when refreshing the webpage
+- [x] View all highlights in the present website. Use `Cmd+Shift+v` in Mac and `Ctrl+Shift+v` in Windows.
 - [ ] Works in all websites
 - [ ] Syncs across different devices.
 - [ ] Import and export all highlights from various websites.
@@ -22,9 +23,10 @@
 ## Want to contribute?
 *You can pick any one of the unfinished task from "What it does?" or fix the below bugs or refactor the userscript or any cosmetic changes, and submit the pull request.*
 
-### Bugs
-- [ ] Does not show up after refresh if the highlighted text contains `<a>`, `<b>`, `<i>`, and so on tags.
+### Bugs & Improvements
+- [ ]- If the highlighted text contains tags like `<a>`, `<b>`, `<i>`, and so on, it doesn’t show up after refreshing the page. But show up in the "View all highlights in the present website.". 
 - [ ] Only works for Wikipedia.
+- [ ] The newly created highlights don’t show up, and I have to refresh the page to see them. Also, refactoring is needed! Ability to delete highlights from this popup.
 
 ---
 
