@@ -3,16 +3,18 @@
 
 [Download](https://raw.githubusercontent.com/physicslog/web-highlighter.user.js/refs/heads/main/web-highlighter.user.js)
 
-**Disclaimer:** It has only been tested in Safari.
+**Disclaimer:** It has only been tested in Safari and for Wikipedia.
 
 ## What it does?
 
 - [x] Automatically highlights the selected text.
 - [x] Pop-up to select different highlighter colors.
 - [x] Saves locally and reloads when refreshing the webpage
+- [ ] Works in all websites
 - [ ] Syncs across different devices.
-- [ ] Able to import and export all highlights from various websites.
+- [ ] Import and export all highlights from various websites.
 - [ ] Local webpage to display all highlights in one place; highlights from various websites.
+- [ ] Works in all touchscreen devices (i.e. iPad, tablet and so on)
 
 ... *new ideas are welcome in the [discussion](https://github.com/physicslog/web-highlighter.user.js/discussions/)*
 
