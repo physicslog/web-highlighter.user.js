@@ -8,8 +8,7 @@
 // @noframes
 // ==/UserScript==
 
-// @bug: Does not show up after refresh if the highlighted text contains <a>, <b>, <i> and so on tags
-// @bug: Only work for Wikipedia
+// @note: Please read any news or bugs at https://github.com/physicslog/web-highlighter.user.js
 
 (function() {
     'use strict';
