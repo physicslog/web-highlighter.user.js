@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Web Highlighter
 // @namespace    physicslog.com.web-highlighter
-// @version      1.0
+// @version      1.1
 // @description  Highlight selected text, saves locally, and edit or delete highlights
 // @match        *://*.wikipedia.org/*
 // @grant        none
@@ -138,7 +138,7 @@
         }
     });
 
-    // Create a popup for editing or deleting highlights
+    // Popup for editing or deleting highlights
     function createPopup(element) {
         const popup = document.createElement('div');
         popup.style.position = 'absolute';
@@ -211,4 +211,76 @@
         document.addEventListener('click', outsideClickListener); 
     } 
     
+    // Another popup to show all the highlighted text on the present webpage
+    // Get the XPath of the element
+    function getElementByXPath(xpath) {
+        return document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+    }
+
+    // Highlight the target element
+    function flashingElement(element, color) {
+        const originalBackgroundColor = element.style.backgroundColor;
+        element.style.backgroundColor = color; // Flashing color
+        setTimeout(() => {
+            element.style.backgroundColor = originalBackgroundColor; // Restore original background color
+        }, 1000); // flashing color duration
+    }
+
+    // Display highlights in a popup window
+    function displayHighlightsPopup() {
+        const popup = document.createElement('div');
+        popup.style.position = 'fixed';
+        popup.style.top = '50%';
+        popup.style.left = '50%';
+        popup.style.transform = 'translate(-50%, -50%)';
+        popup.style.width = '600px';
+        popup.style.height = '400px';
+        popup.style.backgroundColor = 'black';
+        popup.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+        popup.style.border = '1px solid #ccc';
+        popup.style.borderRadius = '8px';
+        popup.style.padding = '10px';
+        popup.style.zIndex = '1002';
+        popup.style.overflowY = 'scroll';
+        popup.style.userSelect = 'none'; // Disable text selection
+
+        popup.innerHTML = '<h3>All Saved Highlights of this webpage</h3><ul></ul>';
+        const list = popup.querySelector('ul');
+        highlights.forEach(hl => {
+            const listItem = document.createElement('li');
+            listItem.innerHTML = `<b>${new Date(hl.timestamp).toLocaleString('en-US', { year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true })}:</b> <span style="color:${hl.color}">${hl.text}</span>`;
+            listItem.style.cursor = 'pointer';
+            listItem.onclick = () => {
+                console.log(`XPath: ${hl.parentPath}`); // Debug log
+                const parentElement = getElementByXPath(hl.parentPath);
+                if (parentElement) {
+                    parentElement.scrollIntoView({ behavior: 'smooth' });
+                    flashingElement(parentElement, hl.color); // Highlight the target element
+                } else {
+                    console.error('Element not found for XPath:', hl.parentPath); // Debug error
+                }
+            };
+            list.appendChild(listItem);
+        });
+
+        document.body.appendChild(popup);
+
+        // Remove popup when clicking outside
+        const outsideClickListener = (event) => {
+            if (!popup.contains(event.target)) {
+                document.body.removeChild(popup);
+                document.removeEventListener('click', outsideClickListener);
+            }
+        };
+        document.addEventListener('click', outsideClickListener);
+    }
+
+    // Listen for Command + V to display highlights popup
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'v' && (event.metaKey || event.ctrlKey)) {
+            event.preventDefault();
+            displayHighlightsPopup();
+        }
+    });
+
 })();
