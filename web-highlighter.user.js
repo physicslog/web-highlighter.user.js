@@ -15,7 +15,7 @@
     'use strict';
 
     const colors = ['#E5AE26', '#B895FF', '#54D171', '#D02848']; 
-    const colors_title = ['Introduction', 'Important', 'Answer', 'Question'];
+    const colors_title = ['Introduction / General / Well-known', 'Important / Spectacle / Interesting', 'Answer / Hint / Idea', 'Question / Critical / Hard / Sceptical'];
     let selectedColor = colors[0];
 
     // Load highlights from local storage
