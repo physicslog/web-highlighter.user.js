@@ -18,26 +18,6 @@
     const colors_title = ['Introduction', 'Important', 'Answer', 'Question'];
     let selectedColor = colors[0];
 
-    // Color selection UI
-    const colorPicker = document.createElement('div');
-    colorPicker.style.position = 'fixed';
-    colorPicker.style.top = '10px';
-    colorPicker.style.right = '10px';
-    colorPicker.style.zIndex = '1000';
-    colors.forEach(color => {
-        const colorButton = document.createElement('button');
-        colorButton.style.backgroundColor = color;
-        colorButton.style.width = '20px';
-        colorButton.style.height = '20px';
-        colorButton.style.margin = '2px';
-        colorButton.style.borderRadius = '50%';
-        colorButton.style.border = 'none';
-        colorButton.style.cursor = 'pointer';
-        colorButton.onclick = () => selectedColor = color;
-        colorPicker.appendChild(colorButton);
-    });
-    // document.body.appendChild(colorPicker);
-
     // Load highlights from local storage
     const highlights = JSON.parse(localStorage.getItem('highlights') || '[]');
     console.log("Loaded highlights:", highlights);
