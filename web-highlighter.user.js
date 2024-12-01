@@ -1,5 +1,6 @@
 // ==UserScript==
 // @name         Web Highlighter
+// @author       Damodar Rajbhandari
 // @namespace    physicslog.com.web-highlighter
 // @version      1.1
 // @description  Highlight selected text, saves locally, and edit or delete highlights
