@@ -2,7 +2,7 @@
 // @name         Web Highlighter
 // @author       Damodar Rajbhandari
 // @namespace    physicslog.com.web-highlighter
-// @version      1.1
+// @version      1.2
 // @description  Highlight selected text, saves locally, and edit or delete highlights
 // @match        *://*.wikipedia.org/*
 // @grant        none
