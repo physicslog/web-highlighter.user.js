@@ -2,7 +2,7 @@
 // @name         Web Highlighter
 // @author       Damodar Rajbhandari
 // @namespace    physicslog.com.web-highlighter
-// @version      1.32
+// @version      1.33
 // @description  Highlight selected text, saves locally, and edit or delete highlights
 // @downloadURL  https://raw.githubusercontent.com/physicslog/web-highlighter.user.js/refs/heads/main/web-highlighter.user.js
 // @license      GNU GPL v3
