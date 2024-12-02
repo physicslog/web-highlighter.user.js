@@ -2,7 +2,7 @@
 // @name         Web Highlighter
 // @author       Damodar Rajbhandari
 // @namespace    physicslog.com.web-highlighter
-// @version      1.2
+// @version      1.3
 // @description  Highlight selected text, saves locally, and edit or delete highlights
 // @match        *://*.wikipedia.org/*
 // @grant        none
@@ -20,6 +20,22 @@
 
     // Load highlights from local storage
     const highlights = JSON.parse(localStorage.getItem('highlights') || '[]');
+
+    // Adds a yellow dot at the top right corner of the webpage if highlights is present.
+    if (highlights.length !== 0) {
+        const dot = document.createElement('div');
+        dot.title = 'Highlights exists! To view: do cmd+shift+v in the Mac';
+        dot.style.width = '10px';
+        dot.style.height = '10px';
+        dot.style.backgroundColor = '#E5AE26';
+        dot.style.borderRadius = '50%';
+        dot.style.position = 'fixed';
+        dot.style.top = '5px';
+        dot.style.right = '5px';
+        dot.style.zIndex = '1000';
+        document.body.appendChild(dot);
+    }
+    
     console.log("Loaded highlights:", highlights);
     highlights.forEach(hl => {
         if (hl.url === window.location.href) {
