@@ -2,7 +2,7 @@
 // @name         Web Highlighter
 // @author       Damodar Rajbhandari
 // @namespace    physicslog.com.web-highlighter
-// @version      1.3
+// @version      1.31
 // @description  Highlight selected text, saves locally, and edit or delete highlights
 // @match        *://*.wikipedia.org/*
 // @grant        none
@@ -117,13 +117,15 @@
     // Event listener for text selection and highlighting
     document.addEventListener('mouseup', () => {
         const selection = window.getSelection();
-        if (selection.rangeCount > 0) {
-            const range = selection.getRangeAt(0);
-            const selectedText = selection.toString().trim();
-            if (selectedText.length > 0) {
-                wrapHighlight(range, selectedColor);
-                saveHighlights();
-                selection.removeAllRanges();
+        if (!event.target.closest('#displayHighlightsPopUp')) { // ignore if that is a popup to list all the highlights
+            if (selection.rangeCount > 0) {
+                const range = selection.getRangeAt(0);
+                const selectedText = selection.toString().trim();
+                if (selectedText.length > 0) {
+                    wrapHighlight(range, selectedColor);
+                    saveHighlights();
+                    selection.removeAllRanges();
+                }
             }
         }
     });
