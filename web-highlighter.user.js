@@ -2,14 +2,12 @@
 // @name         Web Highlighter
 // @author       Damodar Rajbhandari
 // @namespace    physicslog.com.web-highlighter
-// @version      1.31
+// @version      1.32
 // @description  Highlight selected text, saves locally, and edit or delete highlights
 // @match        *://*.wikipedia.org/*
 // @grant        none
 // @noframes
 // ==/UserScript==
-
-// @note: Please read any news or bugs at https://github.com/physicslog/web-highlighter.user.js
 
 (function() {
     'use strict';
@@ -20,7 +18,7 @@
 
     // Load highlights from local storage
     const highlights = JSON.parse(localStorage.getItem('highlights') || '[]');
-
+    
     // Adds a yellow dot at the top right corner of the webpage if highlights is present.
     if (highlights.length !== 0) {
         const dot = document.createElement('div');
@@ -35,7 +33,7 @@
         dot.style.zIndex = '1000';
         document.body.appendChild(dot);
     }
-    
+
     console.log("Loaded highlights:", highlights);
     highlights.forEach(hl => {
         if (hl.url === window.location.href) {
@@ -227,7 +225,9 @@
 
     // Display highlights in a popup window
     function displayHighlightsPopup() {
+        const highlights = JSON.parse(localStorage.getItem('highlights') || '[]');
         const popup = document.createElement('div');
+        popup.id = 'displayHighlightsPopUp';
         popup.style.position = 'fixed';
         popup.style.top = '50%';
         popup.style.left = '50%';
@@ -245,18 +245,24 @@
 
         popup.innerHTML = '<h3>All Saved Highlights of this webpage</h3><ul></ul>';
         const list = popup.querySelector('ul');
-        highlights.forEach(hl => {
+        highlights.forEach((hl, index) => {
             const listItem = document.createElement('li');
-            listItem.innerHTML = `<b>${new Date(hl.timestamp).toLocaleString('en-US', { year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true })}:</b> <span style="color:${hl.color}">${hl.text}</span>`;
+            listItem.innerHTML = `<b>${new Date(hl.timestamp).toLocaleString('en-US', { year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true })}:</b> <span style="color:${hl.color}">${hl.text}</span><button style="margin-left:10px;" class="delete-btn" data-index="${index}">X</button>`;
             listItem.style.cursor = 'pointer';
-            listItem.onclick = () => {
-                console.log(`XPath: ${hl.parentPath}`); // Debug log
-                const parentElement = getElementByXPath(hl.parentPath);
-                if (parentElement) {
-                    parentElement.scrollIntoView({ behavior: 'smooth' });
-                    flashingElement(parentElement, hl.color); // Highlight the target element
+            listItem.onclick = (event) => {
+                if (event.target.classList.contains('delete-btn')) {
+                    event.stopPropagation(); // Prevent event propagation to the popup
+                    const index = event.target.getAttribute('data-index');
+                    deleteHighlight(index);
                 } else {
-                    console.error('Element not found for XPath:', hl.parentPath); // Debug error
+                    console.log(`XPath: ${hl.parentPath}`); // Debug log
+                    const parentElement = getElementByXPath(hl.parentPath);
+                    if (parentElement) {
+                        parentElement.scrollIntoView({ behavior: 'smooth' });
+                        flashingElement(parentElement, hl.color); // Highlight the target element
+                    } else {
+                        console.error('Element not found for XPath:', hl.parentPath); // Debug error
+                    }
                 }
             };
             list.appendChild(listItem);
@@ -272,6 +278,38 @@
             }
         };
         document.addEventListener('click', outsideClickListener);
+    }
+
+    // Delete highlight function 
+    function deleteHighlight(index) { 
+        let highlights = JSON.parse(localStorage.getItem('highlights') || '[]');
+        if (index >= 0 && index < highlights.length) {
+            // Remove highlight from local storage
+            const [deletedHighlight] = highlights.splice(index, 1);
+            localStorage.setItem('highlights', JSON.stringify(highlights));
+
+            // Remove highlight from the DOM
+            removeHighlight(deletedHighlight.parentPath, deletedHighlight.text);
+
+            // Update indices
+            document.getElementById('displayHighlightsPopUp').remove(); 
+            displayHighlightsPopup();
+        }
+    }
+
+    // Remove highlight from the DOM
+    function removeHighlight(parentPath, text) {
+        const parentElement = getElementByXPath(parentPath);
+        if (parentElement) {
+            const highlights = Array.from(parentElement.querySelectorAll('.highlighted'));
+            const span = highlights.find(span => span.textContent.includes(text));
+            if (span) {
+                while (span.firstChild) {
+                    parentElement.insertBefore(span.firstChild, span);
+                }
+                parentElement.removeChild(span);
+            }
+        }
     }
 
     // Listen for Command + V to display highlights popup
