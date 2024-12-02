@@ -4,7 +4,8 @@
 // @namespace    physicslog.com.web-highlighter
 // @version      1.33
 // @description  Highlight selected text, saves locally, and edit or delete highlights
-// @downloadURL  https://raw.githubusercontent.com/physicslog/web-highlighter.user.js/refs/heads/main/web-highlighter.user.js
+// @downloadURL  https://update.greasyfork.org/scripts/519563/Web%20Highlighter.user.js
+// @updateURL    https://update.greasyfork.org/scripts/519563/Web%20Highlighter.meta.js
 // @license      GNU GPL v3
 // @match        *://*.wikipedia.org/*
 // @grant        none
