@@ -9,6 +9,8 @@
 // @noframes
 // ==/UserScript==
 
+// @note: Please read any news or bugs at https://github.com/physicslog/web-highlighter.user.js
+
 (function() {
     'use strict';
 
