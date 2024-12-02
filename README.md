@@ -11,6 +11,7 @@
 - [x] Pop-up to select different highlighter colors.
 - [x] Saves locally and reloads when refreshing the webpage
 - [x] View all highlights in the present website. Use `Cmd+Shift+v` in Mac and `Ctrl+Shift+v` in Windows.
+- [x] If the highlighted text is present on the webpage, it is indicated by adding yellow dots at the top right corner of the webpage. 
 - [ ] Works in all websites
 - [ ] Syncs across different devices.
 - [ ] Import and export all highlights from various websites.
