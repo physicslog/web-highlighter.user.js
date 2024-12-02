@@ -1,7 +1,7 @@
 # web-highlighter.user.js
 *An [userscript](https://en.wikipedia.org/wiki/Userscript) that allows the ability to highlight the selected text in the webpages.*
 
-[Download](https://raw.githubusercontent.com/physicslog/web-highlighter.user.js/refs/heads/main/web-highlighter.user.js) | [Demo](https://youtu.be/yyk4MGJROms?si=x4l-gi68d8un5-K7)
+[Download](https://greasyfork.org/en/scripts/519563-web-highlighter) | [Demo](https://youtu.be/yyk4MGJROms?si=x4l-gi68d8un5-K7)
 
 **Disclaimer:** It has only been tested in Safari using [Userscript App](https://github.com/quoid/userscripts) and for Wikipedia. Looking for contributors ;)
 
